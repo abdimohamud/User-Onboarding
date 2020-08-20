@@ -53,33 +53,28 @@ function App() {
       }
       const inputChange = (name, value) => {
         yup
-      .reach(formSchema, name)
-      //we can then run validate using the value
-      .validate(value)
-      // if the validation is successful, we can clear the error message
-      .then(valid => {
-        setFormErrors({
-          ...formErrors,
-          [name]: "",
+        .reach(formSchema, name)
+        .validate(value)
+        .then(valid => {
+          setFormErrors({
+            ...formErrors,
+            [name]: "",
+          })
         })
-      })
-      /* if the validation is unsuccessful, we can set the error message to the message 
-        returned from yup (that we created in our schema) */
+
       .catch(err => {
         setFormErrors({
           ...formErrors,
-          [name]: err.errors[0],
+          [name]: err.errors,
         })
       })
         setFormValues({
           ...formValues,
-          [name]: value // NOT AN ARRAY
+          [name]: value, // NOT AN ARRAY
         })
       }
 
       const checkboxChange = (name, isChecked) => {
-        // 🔥 STEP 7- IMPLEMENT!
-        //  set a new state for the whole form
         setFormValues({
           ...formValues,
             [name]: isChecked

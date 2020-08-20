@@ -21,6 +21,7 @@ function FormList (props) {
       const onInputChange = evt => {
         const { name, value } = evt.target
         inputChange(name, value)
+        evt.persist()
       }
 
     return(
@@ -33,7 +34,7 @@ function FormList (props) {
             <div>{errors.username}</div>
             <div>{errors.email}</div>
             <div>{errors.role}</div>
-            <div>{errors.civil}</div>
+            <div>{errors.terms}</div>
             </div>
             
         <label>Username: &nbsp;
@@ -65,7 +66,7 @@ function FormList (props) {
           <input 
           name="terms" 
           type="checkbox" 
-          onChange={inputChange} 
+          onChange={onCheckboxChange} 
           />
         Terms/ Conditions
       </label>
