@@ -27,17 +27,16 @@ function FormList (props) {
         <div className="lol">
             
       <form onSubmit={onSubmit}>
-      <button disabled={disabled}>submit</button>
 
             <div className='errors'>
-            {/* 🔥 RENDER THE VALIDATION ERRORS HERE */}
+
             <div>{errors.username}</div>
             <div>{errors.email}</div>
             <div>{errors.role}</div>
             <div>{errors.civil}</div>
             </div>
             
-        <label>Username&nbsp;
+        <label>Username: &nbsp;
           <input
               value={values.username}
               onChange={onInputChange}
@@ -45,7 +44,7 @@ function FormList (props) {
               type='text'
             />
         </label>
-        <label>Email
+        <label>Email: &nbsp;
           <input
             value={values.email}
             onChange={onInputChange}
@@ -54,7 +53,7 @@ function FormList (props) {
           />
         </label>
 
-        <label>Password
+        <label>Password: &nbsp;
           <input
             value={values.password}
             onChange={onInputChange}
@@ -70,6 +69,7 @@ function FormList (props) {
           />
         Terms/ Conditions
       </label>
+      <button disabled={disabled}>submit</button>
 
 
 
